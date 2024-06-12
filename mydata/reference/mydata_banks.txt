@@ -1,0 +1,62 @@
+마이데이터_은행
+계좌 번호: https://m.post.naver.com/viewer/postView.naver?volumeNo=16874906&memberNo=39189924
+계좌 종류: https://brunch.co.kr/@am9goo/573
+
+국민은행
+예금: KB Star 정기예금
+적금: KB내맘대로적금
+입출금: KB 올인원급여통장
+
+https://obank.kbstar.com/quics?page=C016613&cc=b061496:b061496#CP
+
+IBK 기업은행
+예금: 1석7조통장
+적금: IBK D-day적금
+입출금: IBK평생주거래기업통장
+
+https://mybank.ibk.co.kr/uib/jsp/index.jsp
+
+NH농협은행
+예금: NH올원e예금
+적금: NH주거래우대적금
+입출금: NH주거래우대통장
+
+https://smartmarket.nonghyup.com/servlet/SFCNA400S.view
+
+신한은행
+예금: 쏠편한 정기예금
+적금: 신한 안녕, 반가워 적금
+입출금: 신한 슈퍼SOL 통장
+
+https://bank.shinhan.com/index.jsp#020105050000
+
+우리은행
+예금: 우리 첫거래우대 정기예금
+적금: WON 적금
+입출금: 우리 SUPER주거래 통장
+
+https://spot.wooribank.com/pot/Dream?withyou=PODEP0023
+
+하나은행
+예금: 3*6*9 정기예금
+적금: (내맘) 적금
+입출금: 주거래하나 통장
+
+https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?_menuNo=62608
+
+DGB대구은행
+예금: DGB주거래우대예금
+적금: 고객에게 진심이지 적금
+입출금: iM스마트통장
+
+https://www.dgb.co.kr/com_ebz_fpm_main.act
+
+카카오뱅크
+예금: 카카오뱅크 정기예금
+적금: 카카오뱅크 자유적금
+입출금: 카카오뱅크 입출금통장
+
+https://www.kakaobank.com/
+
+잔액: 0원 ~ 1천만원
+생성일자: 2010.01.01 ~ 2024.06.12
