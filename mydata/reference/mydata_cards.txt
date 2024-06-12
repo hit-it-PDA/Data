@@ -1,0 +1,63 @@
+마이데이터_카드
+
+카드번호
+* PK
+
+카드사이름
+
+KB국민카드 (381)
+신한카드 (366)
+하나카드 (044)
+롯데카드 (368)	
+BC카드 (361)	
+
+https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%9D%98_%EC%8B%A0%EC%9A%A9%EC%B9%B4%EB%93%9C%EC%82%AC_%EB%AA%A9%EB%A1%9D
+
+카드이름
+
+* KB국민카드
+  * 신용카드: 삼성페이 KB국민카드
+  * 체크카드: 카카오페이 KB국민 체크카드
+
+https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0056?pageNo=1&cateIdx=1
+
+* 신한카드
+  * 신용카드: 신한카드 Point Plan
+  * 체크카드: 신한카드 Pick E 체크 캐릭터형(루피)
+
+https://www.shinhancard.com/pconts/html/card/check/MOBFM282R11.html?crustMenuId=ms527
+
+
+* 하나카드
+  * 신용카드: 하나 CLUB H 아메리칸 익스프레스 리저브 카드
+  * 체크카드: Young Hana+ 체크카드
+
+https://m.hanacard.co.kr/MKCDPD3000M.web
+
+* 롯데카드
+  * 신용카드: 롯데마트&MAXX 카드
+  * 체크카드: 롯데포인트 플러스 체크카드
+
+https://www.lottecard.co.kr/app/LPCDAEA_V100.lc
+
+* BC카드
+  * 신용카드: [BC바로] GOAT BC바로카드
+  * 체크카드: [BC바로] 밥바라밥 페이북머니 체크카드
+
+
+
+카드구분
+* 신용카드
+* 체크카드
+
+생성일자
+생성일자: 2010.01.01 ~ 2024.06.12
+
+만료일자
+생성일자 + 5년
+https://brunch.co.kr/@cardgorilla/542
+
+고객id
+1~300
+* 고객은 카드를 0개 이상 가지고 있다.
+* 동일한 카드사에 동일한 타입의 카드를 가지지 못한다.
