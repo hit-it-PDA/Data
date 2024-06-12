@@ -8,42 +8,66 @@ banks = {
     "KB국민은행": {
         "예금": "KB Star 정기예금",
         "적금": "KB내맘대로적금",
-        "입출금": "KB 올인원급여통장"
+        "입출금": "KB 올인원급여통장",
+        "DC": "KB DC 통장",
+        "DB": "KB DB 통장",
+        "IRP": "KB IRP 통장"
     },
     "IBK기업은행": {
         "예금": "1석7조통장",
         "적금": "IBK D-day적금",
-        "입출금": "IBK평생주거래기업통장"
+        "입출금": "IBK평생주거래기업통장",
+        "DC": "IBK DC 통장",
+        "DB": "IBK DB 통장",
+        "IRP": "IBK IRP 통장"
     },
     "NH농협은행": {
         "예금": "NH올원e예금",
         "적금": "NH주거래우대적금",
-        "입출금": "NH주거래우대통장"
+        "입출금": "NH주거래우대통장",
+        "DC": "NH DC 통장",
+        "DB": "NH DB 통장",
+        "IRP": "NH IRP 통장"
     },
     "신한은행": {
         "예금": "쏠편한 정기예금",
         "적금": "신한 안녕, 반가워 적금",
-        "입출금": "신한 슈퍼SOL 통장"
+        "입출금": "신한 슈퍼SOL 통장",
+        "DC": "신한 DC 통장",
+        "DB": "신한 DB 통장",
+        "IRP": "신한 IRP 통장"
     },
     "우리은행": {
         "예금": "우리 첫거래우대 정기예금",
         "적금": "WON 적금",
-        "입출금": "우리 SUPER주거래 통장"
+        "입출금": "우리 SUPER주거래 통장",
+        "DC": "우리 DC 통장",
+        "DB": "우리 DB 통장",
+        "IRP": "우리 IRP 통장"
     },
     "하나은행": {
         "예금": "3*6*9 정기예금",
         "적금": "(내맘) 적금",
-        "입출금": "주거래하나 통장"
+        "입출금": "주거래하나 통장",
+        "DC": "하나 DC 통장",
+        "DB": "하나 DB 통장",
+        "IRP": "하나 IRP 통장"
     },
     "DGB대구은행": {
         "예금": "DGB주거래우대예금",
         "적금": "고객에게 진심이지 적금",
-        "입출금": "iM스마트통장"
+        "입출금": "iM스마트통장",
+        "DC": "DGB DC 통장",
+        "DB": "DGB DB 통장",
+        "IRP": "DGB IRP 통장"
     },
     "카카오뱅크": {
         "예금": "카카오뱅크 정기예금",
         "적금": "카카오뱅크 자유적금",
-        "입출금": "카카오뱅크 입출금통장"
+        "입출금": "카카오뱅크 입출금통장",
+        "DC": "카카오 DC 통장",
+        "DB": "카카오 DB 통장",
+        "IRP": "카카오 IRP 통장"
     }
 }
 
@@ -105,6 +129,12 @@ for _ in range(300):
         bank = random.choice(list(banks.keys()))
         account_type = random.choice(list(banks[bank].keys()))
         user_id = random.choice(user_ids)
+
+        # 조건 1: 유저는 DC나 DB 계좌 중 1개만 가질 수 있음
+        if account_type in ["DC", "DB"]:
+            # 유저가 이미 DC나 DB 계좌를 가지고 있는지 확인
+            if any(acc in ["DC", "DB"] for _, acc in user_account_types[user_id]):
+                continue
 
         if (bank, account_type) not in user_account_types[user_id]:
             user_account_types[user_id].add((bank, account_type))
