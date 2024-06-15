@@ -2,3 +2,6 @@
 .idea
 venv
 data/
+**/*.xlsx
+**/*.csv
+.DS_Store
