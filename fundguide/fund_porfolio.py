@@ -75,8 +75,7 @@ def get_fund_code_from_db():
         ORDER BY fund_code
         """
     df = pd.read_sql(sql, con=db_connection)
-    fund_code_list = df['fund_code'].tolist()
-    return fund_code_list
+    return df['fund_code'].tolist()
 
 
 def upload_fund_asset_db(fund_asset_list):
@@ -128,18 +127,6 @@ def upload_fund_bonds_db(fund_bond_item_list):
     }
     df.to_sql(name='fund_bonds', con=db_connection, if_exists='append', index=False, dtype=dtypesql)
     print(">> 펀드 보유 채권 DB 업로드 완료")
-
-
-def get_upload_fund_code_list() -> list[str]:
-    sql = """ 
-            SELECT fp.fund_code
-            FROM fund_products fp
-            LEFT JOIN fund_assets fa ON fp.fund_code = fa.fund_code
-            WHERE fa.fund_code IS NULL
-            ORDER BY fund_code
-            """
-    df = pd.read_sql(sql, con=db_connection)
-    return df['fund_code'].tolist()
 
 
 if __name__ == "__main__":
