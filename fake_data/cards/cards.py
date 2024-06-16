@@ -47,7 +47,7 @@ def random_date(start, end):
 bank_accounts_df = pd.read_excel('../bank_accounts/db/bank_accounts.xlsx')
 
 # 입출금 계좌를 가진 유저 필터링
-filtered_users = bank_accounts_df[bank_accounts_df['type'] == '입출금'].drop_duplicates(subset=['user_id'])
+filtered_users = bank_accounts_df[bank_accounts_df['account_type'] == '입출금'].drop_duplicates(subset=['user_id'])
 
 # 데이터 생성
 data = []
