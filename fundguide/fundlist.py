@@ -80,19 +80,19 @@ def upload_funds(name, sel_peer):
         if fund_info:
             all_items.append(fund_info)
 
-    df = pd.DataFrame(all_items, columns=['code', 'name', 'std_price', 'set_date', 'type', 'type_detail', 'set_amount', 'risk_grade', 'risk_grade_txt', 'company_name'])
+    df = pd.DataFrame(all_items, columns=['fund_code', 'fund_name', 'std_price', 'set_date', 'fund_type', 'fund_type_detail', 'set_amount', 'risk_grade', 'risk_grade_txt', 'company_name'])
 
     # csv로 저장
     df.to_csv(f'펀드리스트_{name}.csv', index=False)
 
     db_connection = connect_db()
     dtypesql = {
-        'code': sqlalchemy.types.VARCHAR(255),
-        'name': sqlalchemy.types.VARCHAR(255),
+        'fund_code': sqlalchemy.types.VARCHAR(255),
+        'fund_name': sqlalchemy.types.VARCHAR(255),
         'std_price': sqlalchemy.types.Float,
         'set_date': sqlalchemy.types.Date,
-        'type': sqlalchemy.types.VARCHAR(255),
-        'type_detail': sqlalchemy.types.VARCHAR(255),
+        'fund_type': sqlalchemy.types.VARCHAR(255),
+        'fund_type_detail': sqlalchemy.types.VARCHAR(255),
         'set_amount': sqlalchemy.types.Integer,
         'risk_grade': sqlalchemy.types.Integer,
         'risk_grade_txt': sqlalchemy.types.VARCHAR(255),
