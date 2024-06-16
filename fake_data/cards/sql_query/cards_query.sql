@@ -6,13 +6,16 @@ show databases;
 CREATE TABLE cards (
     card_no VARCHAR(255) PRIMARY KEY,
     company_name VARCHAR(255),
-    name VARCHAR(255),
+    card_name VARCHAR(255),
     card_type VARCHAR(255),
     created_at DATE,
     expired_at DATE,
     account_no VARCHAR(255),
     user_id INT
 );
+
+## 컬럼 수정
+ALTER TABLE cards CHANGE name card_name VARCHAR(255);
 
 
 ## 카드 조회

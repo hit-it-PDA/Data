@@ -69,19 +69,19 @@ for _, row in filtered_users.iterrows():
             card_type = random.choice(list(card_names[company_name].keys()))
         
         card_no = card_companies[company_name] + ''.join([str(random.randint(0, 9)) for _ in range(13)])
-        name = card_names[company_name][card_type]
+        card_name = card_names[company_name][card_type]
         created_at = random_date(start_date, end_date)
         expired_at = created_at + datetime.timedelta(days=5*365)
         
         user_card_set[user_id].add((company_name, card_type))
         
         data.append([
-            card_no, company_name, name, card_type, created_at, expired_at, user_id, account_no
+            card_no, company_name, card_name, card_type, created_at, expired_at, user_id, account_no
         ])
 
 # 데이터프레임 생성
 df = pd.DataFrame(data, columns=[
-    'card_no', 'company_name', 'name', 'card_type', 'created_at', 'expired_at', 'user_id', 'account_no'
+    'card_no', 'company_name', 'card_name', 'card_type', 'created_at', 'expired_at', 'user_id', 'account_no'
 ])
 
 # 엑셀 파일로 저장
