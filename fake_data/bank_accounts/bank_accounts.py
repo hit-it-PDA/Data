@@ -149,7 +149,7 @@ for _ in range(300):
     data.append({
         "account_no": account_no,
         "bank_name": bank,
-        "type": account_type,
+        "account_type": account_type,
         "name": account_name,
         "balance": balance,
         "created_at": created_at,

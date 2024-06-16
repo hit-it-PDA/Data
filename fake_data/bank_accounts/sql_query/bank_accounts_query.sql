@@ -6,7 +6,7 @@ show databases;
 CREATE TABLE bank_accounts (
     account_no VARCHAR(255),
     bank_name VARCHAR(255),
-    type VARCHAR(255),
+    account_type VARCHAR(255),
     name VARCHAR(255),
     balance INT,
     created_at DATE,
