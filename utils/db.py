@@ -15,8 +15,8 @@ def connect_db():
     # sql로 저장
     db_connection_str = f'mysql+pymysql://{username}:{password}@{hostname}:3306/{schema}'
     db_connection = create_engine(db_connection_str)
-    db_connection.connect()
-    return db_connection
+    conn = db_connection.connect()
+    return db_connection, conn
 
 if __name__ == "__main__":
     connect_db()
