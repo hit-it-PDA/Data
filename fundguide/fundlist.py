@@ -98,9 +98,8 @@ def upload_funds(name, sel_peer):
     row_cnt = 50
     _, total_count = get_fund_code_list(sel_peer, page, row_cnt)
     total_pages = calculate_total_pages(total_count, row_cnt)
-
     start_page = 1
-    end_page = 2
+    end_page = total_pages
     all_items = []
     print("펀드 코드 수집 시작 >> ")
     for page in tqdm(range(start_page, end_page)):
@@ -117,8 +116,7 @@ def upload_funds(name, sel_peer):
                                           'fund_type', 'fund_type_detail', 'set_amount', 'company_name',
                                           'risk_grade', 'risk_grade_txt', 'drv_nav',
                                           'bond', 'bond_foreign', 'stock', 'stock_foreign', 'investment', 'etc',
-                                          'return_1m', 'return_3m', 'return_6m', 'return_1y', 'return_3y', 'return_5y',
-                                          'return_idx', 'return_ytd'])
+                                          'return_1m', 'return_3m', 'return_6m', 'return_1y', 'return_3y', 'return_5y', 'return_idx', 'return_ytd'])
 
     # csv로 저장
     df.to_csv(f'펀드리스트_{name}.csv', index=False)
@@ -156,7 +154,7 @@ def upload_funds(name, sel_peer):
         'return_ytd': sqlalchemy.types.Float,
     }
 
-    df.to_sql(name='fund_products_3', con=db_connection, if_exists='append', index=False, dtype=dtypesql)
+    df.to_sql(name='fund_products_2', con=db_connection, if_exists='append', index=False, dtype=dtypesql)
 
 
 if __name__ == "__main__":
