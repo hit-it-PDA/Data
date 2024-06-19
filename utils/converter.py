@@ -1,5 +1,9 @@
 import html
 
+def to_float(str):
+    if str is None or str == '':
+        return
+    return float(str.replace(",", ""))
 
 def to_int(str):
     if str is None or str == '':
