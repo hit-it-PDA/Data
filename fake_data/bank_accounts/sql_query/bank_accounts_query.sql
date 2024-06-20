@@ -37,3 +37,6 @@ WHERE user_id NOT IN (
 ALTER TABLE bank_accounts
 ADD CONSTRAINT fk_user_id
 FOREIGN KEY (user_id) REFERENCES users(id);
+
+--- table 컬럼명 변경
+ALTER TABLE bank_accounts CHANGE type account_type VARCHAR(255);

@@ -1,0 +1,44 @@
+증권_거래내역
+
+id: 거래id
+auto increment
+
+tx_datetime: 거래일시
+datetime
+
+2024.01.01~2024.06.12
+
+
+tx_type: 거래유형 
+Varchar(255)
+
+매수 or 매도
+
+필수조건은
+매수가 먼저 발생한 후에 해당 종목에 대해 매수 수량 내에서 매도 거래를 할 수 있다.
+
+
+tx_amount: 거래금액
+Integer
+
+거래 수량 * (../../public_data_api/stock/stocks_products_details/db/stocks_products_details.xlsx에서 거래일시에 따른 price 가져오기)
+
+
+bal_after_tx: 거래 후 잔액
+Integer
+0~1억으로 해줘
+
+tx_qty: 거래 수량
+Integer
+거래 수량은 1~100 까지
+
+account_no: 계좌번호
+Varchar(255)
+
+../security_accounts/db/security_accounts.xlsx 에서 account_no 가져오기
+
+
+stock_code: 주식코드
+Varchar(255)
+
+../../public_data_api/stock/stocks_products_details/db/stocks_products_details.xlsx에서 stock_code 가져오기

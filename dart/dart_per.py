@@ -34,4 +34,5 @@
 # else:
 #     print(f"에러 발생: {data['message']}")
 
+# 참조 - API
 # https://blog.naver.com/eastfever5/222278729061

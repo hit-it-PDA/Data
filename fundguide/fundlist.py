@@ -1,9 +1,13 @@
-from utils.db import connect_db
-from utils.converter import to_int, to_float
+# from utils.db import connect_db
+# from utils.converter import to_int, to_float
+
+import os
+print(os.getcwd())
 import requests
 import pandas as pd
 from tqdm import tqdm
 import sqlalchemy
+
 
 
 def get_fund_info(fund_code):
@@ -100,7 +104,7 @@ def upload_funds(name, sel_peer):
     total_pages = calculate_total_pages(total_count, row_cnt)
 
     start_page = 1
-    end_page = 2
+    end_page = total_pages
     all_items = []
     print("펀드 코드 수집 시작 >> ")
     for page in tqdm(range(start_page, end_page)):
@@ -162,12 +166,12 @@ def upload_funds(name, sel_peer):
 if __name__ == "__main__":
 
     sel_peers = {
-        "국내주식형": "HS001|HSA01|HSAG1|HSAM1|HSAD1|HSAS1|HSAT1|HSP01|HSPP1|HSPX1|HSPS1|HSPO1",
-        "국내혼합형": "HM001|HMA01|HMS01|HMB01|HMBM1|HMBA1|HMBH1",
-        "국내채권형": "HB001|HBG01|HBC01|HBB01|HBBO1|HBBS1|HBH01",
-        "해외주식형": "FS001|FSC01|FSCJ1|FSCC1|FSCI1|FSCV1|FSCB1|FSCR1|FSCO1|FSS01|FSSE1|FSSM1|FSSH1|FSSF1|FSSI1|FSSP1|FSSC1|FSSN1|FSSO1|FSR01|FSRG1|FSRD1|FSRM1|FSRU1|FSRE1|FSRN1|FSRS1|FSRP1|FSRX1|FSRA1|FSRI1|FSRO1|FSO01",
+        # "국내주식형": "HS001|HSA01|HSAG1|HSAM1|HSAD1|HSAS1|HSAT1|HSP01|HSPP1|HSPX1|HSPS1|HSPO1",
+        # "국내혼합형": "HM001|HMA01|HMS01|HMB01|HMBM1|HMBA1|HMBH1",
+        # "국내채권형": "HB001|HBG01|HBC01|HBB01|HBBO1|HBBS1|HBH01",
+        # "해외주식형": "FS001|FSC01|FSCJ1|FSCC1|FSCI1|FSCV1|FSCB1|FSCR1|FSCO1|FSS01|FSSE1|FSSM1|FSSH1|FSSF1|FSSI1|FSSP1|FSSC1|FSSN1|FSSO1|FSR01|FSRG1|FSRD1|FSRM1|FSRU1|FSRE1|FSRN1|FSRS1|FSRP1|FSRX1|FSRA1|FSRI1|FSRO1|FSO01",
         "해회혼합형": "FM001|FMA01|FMAD1|FMS01|FMB01|FMO01",
-        "해외채권형": "FB001|FBG01|FBGB1|FBGH1|FBR01|FBRM1|FBRP1|FBRN1|FBRS1|FBRU1|FBO01"
+        # "해외채권형": "FB001|FBG01|FBGB1|FBGH1|FBR01|FBRM1|FBRP1|FBRN1|FBRS1|FBRU1|FBO01"
     }
 
     for key, value in sel_peers.items():

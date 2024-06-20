@@ -1,4 +1,10 @@
-마이데이터_은행
+은행_계좌
+
+2024.06.13
+1. 유저는 DC나 DB 계좌 중 1개만 가질수 있으며, 둘 다 없을수도 있다.
+2. IRP계좌는 위와 관계 없이 0개 이상 가질 수 있다.
+
+
 계좌 번호: https://m.post.naver.com/viewer/postView.naver?volumeNo=16874906&memberNo=39189924
 계좌 종류: https://brunch.co.kr/@am9goo/573
 
