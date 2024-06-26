@@ -1,4 +1,8 @@
 use hitit;
+select * from fund_products_4;
+select * from user_portfolios;
+select * from user_portfolios_fund_products;
+
 
 CREATE TABLE private_portfolios (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -9,6 +13,8 @@ CREATE TABLE private_portfolios (
     stock_exposure INT UNSIGNED
 );
 
+
+
 select * from private_portfolios;
 
 INSERT INTO private_portfolios (name, investment_type, summary, minimum_subscription_fee, stock_exposure)
@@ -17,7 +23,20 @@ VALUES
 ('HitIT & 신한_중립형', '중립형', 'Hit It과 신한투자증권이 선별한 중립형 포트폴리오', 200, 50),
 ('HitIT & 신한_안정형', '안정형', 'Hit It과 신한투자증권이 선별한 안정형 포트폴리오', 300, 30);
 
+
+select * From private_portfolios;
+select * from private_portfolios_fund_products where fund_code = "K55223BV4542";
+select * from private_portfolios_fund_stocks;
+
 DROP TABLE private_portfolios_fund_products;
+
+select * from user_portfolios;
+select * from user_portfolios_fund_products where portfolio_id = 10;
+
+DELETE FROM user_portfolios
+WHERE id = 9;
+
+delete from user_portfolios_fund_products where portfolio_id = 9;
 
 CREATE TABLE private_portfolios_fund_products (
     fund_code VARCHAR(255),
@@ -247,6 +266,114 @@ select * from private_portfolios_fund_stocks where fund_code = "K55235BW6864";
 
 SELECT COUNT(*) FROM private_portfolios_fund_bonds where fund_code = "K55207BU0715";
 
+select * from users_portfolio;
+show create table users_portfolio;
+select * from private_portfolios;
+
+
+## 2024-06-23
+show create table private_portfolios;
+show create table private_portfolios_fund_products;
+show create table private_portfolios_fund_assets;
+show create table private_portfolios_fund_stocks;
+show create table private_portfolios_fund_bonds;
+
+
+CREATE TABLE `user_portfolios` (
+   `id` int unsigned NOT NULL AUTO_INCREMENT,
+   `name` varchar(255) DEFAULT NULL,
+   `investment_type` varchar(255) DEFAULT NULL,
+   `summary` varchar(255) DEFAULT NULL,
+   `minimum_subscription_fee` int unsigned DEFAULT NULL,
+   `stock_exposure` int unsigned DEFAULT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ 
+ CREATE TABLE `user_portfolios_fund_products` (
+   `fund_code` varchar(255) NOT NULL,
+   `portfolio_id` int unsigned NOT NULL,
+   `fund_name` varchar(255) DEFAULT NULL,
+   `fund_type_detail` varchar(255) DEFAULT NULL,
+   `company_name` varchar(255) DEFAULT NULL,
+   `weight` float DEFAULT NULL,
+   `return_3m` float NOT NULL DEFAULT '0',
+   PRIMARY KEY (`fund_code`,`portfolio_id`),
+   KEY `portfolio_id` (`portfolio_id`),
+   CONSTRAINT `user_portfolios_fund_products_ibfk_1` FOREIGN KEY (`portfolio_id`) REFERENCES `user_portfolios` (`id`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ 
+ CREATE TABLE `user_portfolios_fund_assets` (
+   `fund_code` varchar(255) NOT NULL,
+   `stock` float DEFAULT NULL,
+   `stock_foreign` float DEFAULT NULL,
+   `bond` float DEFAULT NULL,
+   `bond_foreign` float DEFAULT NULL,
+   `investment` float DEFAULT NULL,
+   `etc` float DEFAULT NULL,
+   PRIMARY KEY (`fund_code`),
+   CONSTRAINT `user_portfolios_fund_assets_ibfk_1` FOREIGN KEY (`fund_code`) REFERENCES `user_portfolios_fund_products` (`fund_code`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ 
+ CREATE TABLE `user_portfolios_fund_stocks` (
+   `fund_code` varchar(255) NOT NULL,
+   `stock_name` varchar(255) NOT NULL,
+   `size` varchar(255) DEFAULT NULL,
+   `style` varchar(255) DEFAULT NULL,
+   `weight` float DEFAULT NULL,
+   PRIMARY KEY (`fund_code`,`stock_name`),
+   CONSTRAINT `user_portfolios_fund_stocks_ibfk_1` FOREIGN KEY (`fund_code`) REFERENCES `user_portfolios_fund_products` (`fund_code`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ 
+ CREATE TABLE `user_portfolios_fund_bonds` (
+   `bond_name` varchar(255) NOT NULL,
+   `fund_code` varchar(255) NOT NULL,
+   `expire_date` date DEFAULT NULL,
+   `duration` float DEFAULT NULL,
+   `credit` varchar(255) DEFAULT NULL,
+   `weight` float DEFAULT NULL,
+   `expired_date` datetime(6) DEFAULT NULL,
+   PRIMARY KEY (`bond_name`,`fund_code`),
+   KEY `fund_code` (`fund_code`),
+   CONSTRAINT `user_portfolios_fund_bonds_ibfk_1` FOREIGN KEY (`fund_code`) REFERENCES `user_portfolios_fund_products` (`fund_code`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ 
+ show create table users_portfolio;
+ CREATE TABLE `user_select` (
+   `id` int NOT NULL AUTO_INCREMENT,
+   `portfolio_id` int unsigned DEFAULT NULL,
+   PRIMARY KEY (`id`),
+   KEY `portfolio_id` (`portfolio_id`),
+   CONSTRAINT `user_select_ibfk_1` FOREIGN KEY (`portfolio_id`) REFERENCES `user_portfolios` (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ 
+ select * From user_select;
+ 
+ CREATE TABLE `fund_prices` (
+   `fund_code` varchar(255) NOT NULL,
+   `Date` date NOT NULL,
+   `price` float DEFAULT NULL,
+   PRIMARY KEY (`Date`,`fund_code`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ 
+ select count(*) from fund_prices;
+ select * from fund_prices;
+ select * from user_portfolios;
+ select * from fund_prices;
+ 
+ ALTER TABLE user_portfolios
+ADD COLUMN created_at DATE;
+
+ALTER TABLE example
+MODIFY created_at DATE DEFAULT current_timestamp;
+
+
+select * from user_portfolios;
 
 
 
+UPDATE user_portfolios
+SET created_at = '2024-06-05';
+SET SQL_SAFE_UPDATES = 0;
+
+
+ 
